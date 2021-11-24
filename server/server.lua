@@ -35,19 +35,19 @@ local function NextWeatherStage()
         if new == 1 then
             if CurrentWeather == "CLEARING" then CurrentWeather = "FOGGY" else CurrentWeather = "RAIN" end
         elseif new == 2 then
-            CurrentWeather = "CLOUDS"
+            CurrentWeather = "SNOW"
         elseif new == 3 then
             CurrentWeather = "CLEAR"
         elseif new == 4 then
             CurrentWeather = "EXTRASUNNY"
         elseif new == 5 then
-            CurrentWeather = "SMOG"
+            CurrentWeather = "BLIZZARD"
         else
             CurrentWeather = "FOGGY"
         end
-    elseif CurrentWeather == "THUNDER" or CurrentWeather == "RAIN" then
+    elseif CurrentWeather == "THUNDER" or CurrentWeather == "RAIN" or CurrentWeather == "BLIZZARD" then
         CurrentWeather = "CLEARING"
-    elseif CurrentWeather == "SMOG" or CurrentWeather == "FOGGY" then
+    elseif CurrentWeather == "SMOG" or CurrentWeather == "FOGGY" or CurrentWeather == "SNOW" then
         CurrentWeather = "CLEAR"
     end
     TriggerEvent("qb-weathersync:server:RequestStateSync")
